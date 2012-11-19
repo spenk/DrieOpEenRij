@@ -30,6 +30,7 @@ public class DrieOpEenRij extends javax.swing.JFrame {
 				+ getString(row4) + getString(row5) + getString(row6)
 				+ "</div>\n" + "</body>\n" + "</html>";
 		jLabel4.setText(html);
+		this.MessageSystem("Speler 1 is aan de beurt!", "blue");
 	}
 
 	public void fillLists() {
@@ -123,7 +124,7 @@ public class DrieOpEenRij extends javax.swing.JFrame {
 						if (!row1.get(rownum).equals("<td></td>")){
 					       disableButton(rownum+1);
 						}
-						if (player){player = false;}else{player = true;}
+						if (player){player = false; MessageSystem("Speler 1 is aan de beurt!","blue");}else{player = true;MessageSystem("Speler 2 is aan de beurt!","red");}
 						serving = false;
 					}
 					return;
@@ -141,6 +142,11 @@ public class DrieOpEenRij extends javax.swing.JFrame {
 		if (rownum == 5){jButton5.setEnabled(false);}
 		if (rownum == 6){jButton6.setEnabled(false);}
 		if (rownum == 7){jButton7.setEnabled(false);}
+	}
+	
+	public void MessageSystem(String message, String color){
+		String htm = "<html><font color="+color+">"+message+"</font></html>";
+		jLabel3.setText(htm);
 	}
 
 	private void initComponents() {
@@ -236,9 +242,9 @@ public class DrieOpEenRij extends javax.swing.JFrame {
 														layout.createSequentialGroup()
 																.addComponent(
 																		jLabel1)
-																.addGap(138,
-																		138,
-																		138)
+																.addGap(85,
+																		85,
+																		85)
 																.addComponent(
 																		jLabel3)
 																.addPreferredGap(
